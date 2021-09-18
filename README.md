@@ -61,4 +61,4 @@ src/
 * <a href="https://frontendmasters.com/bootcamp/calculator-javascript/">Frontend Masters (JAVASCRIPT)</a>
 
 ## License and Copyright Information.
-See [my MIT LICENSE](https://github.com/kimanicharles911/react_calculator_frontendmasters/blob/master/LICENSE.txt) for details.
+See [my MIT LICENSE](https://github.com/kimanicharles911/to_do_app_w_react/blob/master/LICENSE.txt) for details.
