@@ -42,11 +42,11 @@ npm i bootstrap jquery popper.js react-bootstrap@next react-icons --save
 ```
 src/
   Components/
-    ButtonsComponent.jsx
-    ScreenComponent.jsx
+    normalize.css
+    reset.css
     style.css
   App.css
-  App.js
+  App.jsx
   App.test.js
   index.css
   index.js
