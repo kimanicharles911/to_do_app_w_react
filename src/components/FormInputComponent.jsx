@@ -1,6 +1,6 @@
 /* I learnt how to push into array states from: https://stackoverflow.com/a/65506651/9497346 */
 import { useState, useEffect } from "react";
-const FormInputComponent = ({ addedToDosHandlerProp }) => {
+const FormInputComponent = ({ dbEventHandlerProp }) => {
 
   let [increment, setIncrement] = useState(1);
 
@@ -16,6 +16,7 @@ const FormInputComponent = ({ addedToDosHandlerProp }) => {
   const clearInputFormFunc = () => {
     setInputFormToDoTask("");  
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
     incrementFunc();
@@ -24,13 +25,18 @@ const FormInputComponent = ({ addedToDosHandlerProp }) => {
       id: increment,
       todoTask: inputFormToDoTask
     };
-    setAllInputsObject(oldArray => [...oldArray, newInputObject]);
+    let localDbAllInputsObject;
+    if(localStorage.getItem("allInputsObject") !== undefined){
+      localDbAllInputsObject = JSON.parse(localStorage.getItem("allInputsObject"));
+    }else{
+      localStorage.setItem("allInputsObject", JSON.stringify(allInputsObject));
+      localDbAllInputsObject = JSON.parse(localStorage.getItem("allInputsObject"));    
+    }
+    localDbAllInputsObject.push(newInputObject);
+    localStorage.setItem("allInputsObject", JSON.stringify(localDbAllInputsObject));
     clearInputFormFunc();
+    dbEventHandlerProp(increment);
   };
-
-  useEffect(() => {
-    if(allInputsObject.length > 0) addedToDosHandlerProp(allInputsObject);
-  }, [allInputsObject]);
 
   return(
     <form className="needs-validation mt-3" id="form" onSubmit={submitHandler} novalidate>
