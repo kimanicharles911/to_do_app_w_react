@@ -32,7 +32,7 @@ const FormInputComponent = ({ dbEventHandlerProp }) => {
       localStorage.setItem("allInputsObject", JSON.stringify(allInputsObject));
       localDbAllInputsObject = JSON.parse(localStorage.getItem("allInputsObject"));    
     }
-    localDbAllInputsObject.push(newInputObject);
+    localDbAllInputsObject === null ? localDbAllInputsObject = [newInputObject] : localDbAllInputsObject.push(newInputObject);
     localStorage.setItem("allInputsObject", JSON.stringify(localDbAllInputsObject));
     clearInputFormFunc();
     dbEventHandlerProp(increment);

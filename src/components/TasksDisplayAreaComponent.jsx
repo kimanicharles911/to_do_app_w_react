@@ -18,7 +18,7 @@ const TasksDisplayAreaComponent = ({liftedIncrementProp }) => {
   return(
     <ul>
       {
-        addedTasks !== undefined && addedTasks.map((item, index) => {
+        addedTasks !== null && addedTasks !== undefined && addedTasks.map((item, index) => {
           return <li key={index} className="card-text mt-3">{item.id}. {item.todoTask} &nbsp; <button type="button" className="btn-close btn-sm" onClick={() => deleteTodoHandler(item.id)}></button> </li>
         })
       }
