@@ -1,10 +1,10 @@
 /* I learnt how to push into array states from: https://stackoverflow.com/a/65506651/9497346 */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 const FormInputComponent = ({ dbEventHandlerProp }) => {
 
   let [increment, setIncrement] = useState(1);
 
-  const [allInputsObject, setAllInputsObject] = useState([]);
+  const allInputsObject = [];
   
   const [inputFormToDoTask, setInputFormToDoTask] = useState("");
 
